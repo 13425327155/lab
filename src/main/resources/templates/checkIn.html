@@ -1,0 +1,87 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>教师团队管理子系统</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+</head>
+
+<body>
+<div class="xh-main">
+    <div style="padding:10px">
+        <h2 style="text-align: center">
+            出入登记表
+        </h2>
+        <div style="width: 60%;margin-left: 13%">
+            <form role="form" class="form-horizontal" style="margin-left: 25%" th:action="@{/checkIn}" th:method="post">
+                <div class="form-group">
+                        <span class="input-group-addon">
+                            <label for="teamName"><i class="fa fa-flag-o"></i></label>
+                        </span>
+                    <input type="text" class="form-control" name="team_name" id="teamName" placeholder="请填写所属团队名称">
+                    <label class="radio-inline"><input type="radio" name="team_type">教师团队</label>
+                    <label class="radio-inline"><input type="radio" name="team_type">项目团队</label>
+                    <label class="radio-inline"><input type="radio" name="team_type">竞赛团队</label>
+                    <label class="radio-inline"><input type="radio" name="team_type">其他团队</label>
+                </div>
+                <div class="form-group">
+                        <span class="input-group-addon">
+                            <label for="laboratory"><i class="fa fa-linkedin"></i></label>
+                        </span>
+                    <input type="text" class="form-control" name="lab_name" id="laboratory" placeholder="请填写实验室名称">
+                </div>
+                <div class="form-group">
+                        <span class="input-group-addon">
+                            <ul style="list-style: none;padding-left: 0px">
+                                <li><label for="applicant"><i class="fa fa-user"></i></label></li>
+                            </ul>
+                        </span>
+                    <input type="text" class="form-control" id="applicant" name="name" placeholder="团队负责人的姓名" style="text-align: center">
+                    <input type="tel" class="form-control" name="team_phone" placeholder="团队负责人的联系方式" style="text-align: center">
+                </div>
+                <div class="form-group">
+                        <span class="input-group-addon">
+                            <label for="member"><i class="fa fa-group"></i></label>
+                        </span>
+                    <textarea id="member" class="form-control" name="team_member" placeholder="请填写团队队员"  rows="4" cols="92"></textarea>
+
+                </div>
+                <div class="form-group">
+                        <span class="input-group-addon">
+                            <label for="inTime"><i class="fa fa-calendar-o"></i></label>
+                        </span>
+                    <input type="date" class="form-control" name="in_time" id="inTime" placeholder="请填写开始时间">
+                    <h5 style="text-align: center">至</h5>
+                    <input type="date" class="form-control" name="out_time" id="outTime" placeholder="请填写结束时间">
+                </div>
+
+                <div>
+                    <button class="btn-primary btn" onclick="remind()" style="font-size: 18px">登记</button>
+                    <button class="btn-info btn" style="font-size: 18px">重置</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+<link th:href="@{css/xh.css}" rel="stylesheet" type="text/css" href="css/xh.css?tmp=345">
+<link th:href="@{css/xhico.css}" rel="stylesheet" type="text/css" href="css/xhico.css">
+<link th:href="@{css/main.css}" rel="stylesheet" type="text/css" href="css/main.css">
+<link th:href="@{Font/font-awesome-4.7.0/css/font-awesome.min.css}" rel="stylesheet" type="text/css" href="Font/font-awesome-4.7.0/css/font-awesome.min.css">
+<script th:src="@{js/jquery.js}" src="js/jquery.js" type="text/javascript"></script>
+<script th:src="@{js/xh.j}" src="js/xh.js?tmp=21" type="text/javascript"></script>
+<script th:src="@{js/main.js}" src="js/main.js?tmp=123" type="text/javascript"></script>
+
+<link th:href="@{http://www.jq22.com/jquery/bootstrap-3.3.4.css}" rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+<script th:src="@{http://www.jq22.com/jquery/bootstrap-3.3.4.js}" src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<script>
+    function remind() {
+        alert("登记成功！");
+    }
+</script>
+</html>

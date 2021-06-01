@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.team.dao.TasksDao" >
+
+    <resultMap id="tasksMap" type="com.example.team.model.Tasks" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="task_name" property="task_name" jdbcType="VARCHAR" />
+        <result column="difficulty" property="difficulty" jdbcType="VARCHAR" />
+        <result column="closing_time" property="closing_time"/>
+        <result column="task_text" property="task_text" jdbcType="VARCHAR" />
+        <result column="release_time" property="release_time"/>
+        <result column="assign_state" property="assign_state" jdbcType="VARCHAR" />
+        <result column="end_time" property="end_time"/>
+        <result column="task_people_number" property="task_people_number" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findTasks" resultMap="tasksMap" parameterType="com.example.team.model.Tasks">
+        select * from zxl_tasks
+        <where>
+            assign_state = 0
+        </where>
+    </select>
+
+    <select id="findCompleted" resultMap="tasksMap" parameterType="com.example.team.model.Tasks">
+        select * from zxl_tasks
+        <where>
+            assign_state = 1
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.example.team.model.Tasks">
+        insert into zxl_tasks values (#{id}, #{task_name},#{difficulty},
+                                            #{closing_time},#{task_text},#{release_time},#{assign_state},
+                                            #{end_time},#{task_people_number})
+    </insert>
+
+    <select id="findByTaskName" resultMap="tasksMap" parameterType="com.example.team.model.Tasks">
+        select * from zxl_tasks
+        <where>
+            task_name like "%"#{task_name}"%" and assign_state = 1
+        </where>
+    </select>
+
+
+    <!--    //查看任务列表-->
+    <select id="findAllAssign" resultMap="tasksMap" parameterType="com.example.team.model.Tasks">
+        select * from zxl_tasks
+        <where>
+            task_people_number = #{task_people_number}
+        </where>
+    </select>
+
+    <!--    //模糊查询任务列表-->
+    <select id="searchTasks" resultMap="tasksMap" parameterType="com.example.team.model.Tasks">
+        select * from zxl_tasks
+        <where>
+            task_people_number = #{task_people_number}
+            <if test="inputs != null and inputs != ''">
+                and ((id like concat('%',#{inputs},'%')) or (task_name like concat('%',#{inputs},'%'))
+                or (difficulty like concat('%',#{inputs},'%')) or (task_text like concat('%',#{inputs},'%'))
+                or (assign_state like concat('%',#{inputs},'%')))
+            </if>
+        </where>
+    </select>
+
+    <!--    //完成任务-->
+    <update id="updateAssignState" parameterType="com.example.team.model.Tasks">
+        update zxl_tasks set assign_state="1" where id=#{id}
+    </update>
+
+</mapper>

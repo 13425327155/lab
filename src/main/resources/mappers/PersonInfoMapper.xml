@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.team.dao.PersonInfoDao" >
+
+    <resultMap id="personInfoMap" type="com.example.team.model.PersonInfo" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="mem_name" property="mem_name" jdbcType="VARCHAR" />
+        <result column="stu_password" property="stu_password" jdbcType="VARCHAR" />
+        <result column="stu_number" property="stu_number" jdbcType="VARCHAR" />
+        <result column="mem_class" property="mem_class" jdbcType="VARCHAR" />
+        <result column="mem_phone" property="mem_phone" jdbcType="VARCHAR" />
+        <result column="team_id" property="team_id" jdbcType="VARCHAR" />
+        <result column="mem_state" property="mem_state" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findByStuNum" resultMap="personInfoMap" parameterType="com.example.team.model.PersonInfo">
+        select * from zxl_personInfo
+        <where>
+            stu_number=#{stu_number}
+        </where>
+    </select>
+
+    <select id="findByName" resultMap="personInfoMap" parameterType="com.example.team.model.PersonInfo">
+        select * from zxl_personInfo
+        <where>
+            team_id = ${team_id}
+            and mem_name like "%"#{mem_name}"%"
+        </where>
+    </select>
+
+    <select id="findByTeamId" resultMap="personInfoMap" parameterType="com.example.team.model.PersonInfo">
+        select * from zxl_personInfo
+        <where>
+            team_id=#{team_id} and mem_state = 1
+        </where>
+    </select>
+
+    <select id="findNew" resultMap="personInfoMap" parameterType="com.example.team.model.PersonInfo">
+        select * from zxl_personInfo
+        <where>
+            team_id=#{team_id} and mem_state = -1
+        </where>
+    </select>
+
+    <update id="deleteMember" parameterType="com.example.team.model.PersonInfo">
+        update zxl_personInfo set mem_state="0",team_id ="0" where id=#{id}
+    </update>
+    <update id="agree" parameterType="com.example.team.model.PersonInfo">
+        update zxl_personInfo set mem_state="1" where id=#{id}
+    </update>
+    <update id="refuse" parameterType="com.example.team.model.PersonInfo">
+        update zxl_personInfo set mem_state="0",team_id="0" where id=#{id}
+    </update>
+
+
+    <select id="findPersonInfo" resultMap="personInfoMap" parameterType="String">
+        select * from zxl_personInfo
+        <where>
+            stu_number=#{stu_number}
+        </where>
+    </select>
+
+    <select id="findPersonInfoId" resultMap="personInfoMap" parameterType="com.example.team.model.PersonInfo">
+        select id from zxl_personInfo
+        <where>
+            stu_number=#{stu_number} and stu_password=#{stu_password}
+        </where>
+    </select>
+
+    <select id="findPersonInfoById" resultMap="personInfoMap" parameterType="String">
+        select mem_state from zxl_personInfo
+        <where>
+            id=#{id}
+        </where>
+    </select>
+
+    <update id="savePersonInfo" parameterType="com.example.team.model.PersonInfo">
+        update zxl_personInfo
+        <set>
+            <if test="mem_name != null">
+                mem_name = #{mem_name,jdbcType=VARCHAR},
+            </if>
+            <if test="stu_number != null">
+                stu_number = #{stu_number,jdbcType=VARCHAR},
+            </if>
+            <if test="mem_class != null">
+                mem_class = #{mem_class,jdbcType=VARCHAR},
+            </if>
+            <if test="mem_phone != null">
+                mem_phone = #{mem_phone,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updatePassword" parameterType="com.example.team.model.PersonInfo">
+        update zxl_personInfo
+        set
+            stu_password = #{stu_password,jdbcType=VARCHAR}
+        where
+            stu_number = #{stu_number,jdbcType=VARCHAR}
+    </update>
+
+
+    <update id="updateState" parameterType="com.example.team.model.PersonInfo">
+        update zxl_personInfo set team_id=#{team_id}, mem_state="-1" where id=#{id}
+    </update>
+
+    <update id="deleteMem_state" parameterType="com.example.team.model.PersonInfo">
+        update zxl_personInfo set team_id="0", mem_state="0" where stu_number=#{stu_number}
+    </update>
+</mapper>

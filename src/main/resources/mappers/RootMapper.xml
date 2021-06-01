@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.team.dao.RootDao">
+
+    <resultMap id="rootMap" type="com.example.team.model.Root">
+        <id property="id" column="id"/>
+        <result property="root_name" column="root_name"/>
+        <result property="root_password" column="root_password"/>
+        <result property="root_phone" column="root_phone"/>
+    </resultMap>
+
+    <select id="findByUsername" parameterType="String" resultMap="rootMap">
+        select * from zxl_root
+        where root_name = #{root_name}
+    </select>
+
+
+
+    <update id="updateRoot" parameterType="com.example.team.model.Root">
+        update zxl_root
+        set root_name = #{root_name},
+            root_password = #{root_password},
+            root_phone = #{root_phone}
+        where id = #{id}
+
+    </update>
+
+
+</mapper>

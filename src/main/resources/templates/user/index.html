@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>门锁管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" th:href="@{/css/amazeui.min.css}" href="../static/css/amazeui.min.css">
+    <link rel="stylesheet" th:href="@{/css/style_user.css}" href="../static/css/style_user.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css">
+    <style>
+        #main{
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="am-topbar">
+    <!-- 导航 -->
+    <div class="am-g am-g-fixed">
+        <a th:href="@{/logout_user}"><button class = "backbtn">退出</button></a>
+        <h1 class="am-topbar-brand">
+            <a href="#">门锁管理</a>
+        </h1>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+        <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li class="am-active"><a th:href="@{/index}">首页</a></li>
+                <li ><a th:href="@{/msgl}">门锁管理</a></li>
+                <li><a th:href="@{/sbgl}">设备管理</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+<div id="main">
+        <div class="am-g am-g-fixed">
+            <h2 style="text-align:center;margin:10px;">安全责任书</h2>
+            <img src="/image/wlaqzrs.jpg" />
+            <p>　　本图为实验室安全责任书样图，以纸质实物为准，所有学生、教职工都必须签订纸质安全责任书，并由实验室安全负责人统一收录。</p>
+            <p>  <b>  没有签订实验室安全责任书一律不得进入实验室</b></p>
+        </div>
+       
+    </div>
+    <div id="footer">
+
+    </div>
+</body>
+</html>

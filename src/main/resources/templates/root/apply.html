@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title>实验室子系统</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simplest is - Professional A unique and beautiful collection of UI elements">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/uikit.css}" href="../static/css/uikit.css">
+    <link rel="stylesheet" th:href="@{/css/public.css}" href="../static/css/public.css">
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="../assets/css/icons.css">
+    <script src="https://s1.pstatp.com/cdn/expire-1-M/font-awesome/5.4.1/js/all.min.js" crossorigin="anonymous"></script>
+
+    <!-- Google font
+    ================================================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <!--    Bootstrap4-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script th:src="@{https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+    <script th:src="@{js/onclick.js}"></script>
+
+
+
+</head>
+
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- sidebar -->
+    <div class="main_sidebar">
+        <div class="side-overlay" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></div>
+
+        <!-- sidebar header -->
+        <div class="sidebar-header">
+            <!-- Logo-->
+            <div id="logo">
+                <h4 style="color: white">实验室子系统</h4>
+            </div>
+            <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
+        </div>
+
+        <!-- 菜单栏 -->
+        <div class="sidebar">
+            <div class="sidebar_innr" data-simplebar>
+
+                <div class="sections">
+                    <ul>
+                        <li>
+                            <a th:href="@{/root_home}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="#047cac" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"></path>
+                                </svg>
+                                首页 </a>
+                        </li>
+                        <li>
+                            <a th:href="@{/findByAchievementPage}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="#8bc34a"
+                                          d="M22,16V4A2,2 0 0,0 20,2H8A2,2 0 0,0 6,4V16A2,2 0 0,0 8,18H20A2,2 0 0,0 22,16M11,12L13.03,14.71L16,11L20,16H8M2,6V20A2,2 0 0,0 4,22H18V20H4V6">
+                                    </path>
+                                </svg> 实验成果管理 </a>
+                        </li>
+                        <li class="active">
+                            <a th:href="@{/findByApplyPage}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="#009688"
+                                          d="M21,9A1,1 0 0,1 22,10A1,1 0 0,1 21,11H16.53L16.4,12.21L14.2,17.15C14,17.65 13.47,18 12.86,18H8.5C7.7,18 7,17.27 7,16.5V10C7,9.61 7.16,9.26 7.43,9L11.63,4.1L12.4,4.84C12.6,5.03 12.72,5.29 12.72,5.58L12.69,5.8L11,9H21M2,18V10H5V18H2Z">
+                                    </path>
+                                </svg> 实验室申请管理 </a>
+                        </li>
+                        <li>
+                            <a th:href="@{/findByCheckInPage}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="#03A9F4"
+                                          d="M16.5,9L13.5,12L16.5,15H22V9M9,16.5V22H15V16.5L12,13.5M7.5,9H2V15H7.5L10.5,12M15,7.5V2H9V7.5L12,10.5L15,7.5Z">
+                                    </path>
+                                </svg> 出入管理 </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 容器 -->
+    <div class="main_content">
+
+        <!-- 头部 -->
+        <div id="main_header">
+            <header>
+
+                <div class="header-innr">
+                    <!-- Logo-->
+                    <div class="header-btn-traiger is-hidden" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible">
+                        <span></span></div>
+
+                    <!-- Logo-->
+                    <div id="logo">
+                        菜单栏
+                    </div>
+
+
+                    <h2 style="margin: auto">实验室申请管理</h2>
+
+                </div> <!-- / heaader-innr -->
+            </header>
+
+        </div>
+
+        <!--内容区-->
+        <div>
+                <!--搜索-->
+                <form th:action="@{/searchApplyByName}">
+                    <div class="input-group mb-3 " style="width: 60%;margin-top: 1%;">
+                        <input name="search_name" type="text" class="form-control" placeholder="请输入申请人姓名查找..." id="demo" >
+                        <div class="input-group-append">
+                            <!--<span class="input-group-text">搜索</span>-->
+                            <input type="submit" value="搜索"  class="btn btn-success">
+                            <a th:href="@{/findByApplyPage}" style="margin-left: 10px;"><button type="button" class="btn btn-outline-primary">查看未批准的</button></a>
+                            <a th:href="@{/searchApplyByState?apply_state=1}" style="margin-left: 10px;"><button type="button" class="btn btn-outline-success">查看同意的</button></a>
+                            <a th:href="@{/searchApplyByState?apply_state=-1}" style="margin-left: 10px;"><button type="button" class="btn btn-outline-secondary">查看驳回的</button></a>
+
+                        </div>
+                    </div>
+                </form>
+                <!--<button type="button" class="btn btn-primary">查看未批准的</button>-->
+                <!--<button type="button" class="btn btn-primary" style="margin-left: 3%;">查看已批准的</button>-->
+
+
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>申请人</th>
+                        <th>申请时间</th>
+                        <th>联系方式</th>
+                        <th>团队类型</th>
+                        <th>团队名称</th>
+                        <th>是否签责任书</th>
+                        <th>实验室地点</th>
+                        <th>开始时间</th>
+                        <th>结束时间</th>
+                        <th>申请目的说明</th>
+                        <th>团队成员</th>
+                        <th>申请状态</th>
+                        <!--<th>操作</th>-->
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="apply:${applys}">
+                            <td th:text="${apply.id}"></td>
+                            <td th:text="${apply.apply_people}"></td>
+                            <td th:text="${#dates.format(apply.apply_time,'yyyy-MM-dd')}"></td>
+                            <td th:text="${apply.apply_phone}"></td>
+                            <td th:text="${apply.team_type}"></td>
+                            <td th:text="${apply.team_name}"></td>
+                            <td th:text="${apply.is_responsibility}"></td>
+                            <td th:text="${apply.distribution_lab}"></td>
+                            <td th:text="${#dates.format(apply.start_time,'yyyy-MM-dd')}"></td>
+                            <td th:text="${#dates.format(apply.end_time,'yyyy-MM-dd')}"></td>
+                            <td th:text="${apply.apply_purpose}"></td>
+                            <td th:text="${apply.team_member}"></td>
+                            <td th:if="${apply.apply_state=='-1'}"><button type="button" class="btn btn-danger btn-sm">已驳回</button></td>
+                            <td th:if="${apply.apply_state=='0'}"><button type="button" class="btn btn-secondary btn-sm">未批准</button></td>
+                            <td th:if="${apply.apply_state=='1'}"><button type="button" class="btn btn-success btn-sm">已同意</button></td>
+                            <!--<td>-->
+                                <!--<button type="button" class="btn btn-danger">未批准</button>-->
+                            <!--</td>-->
+                            <td>
+                                <a th:href="@{/updateApplyState/}+${apply.id}+'/1'"><button th:if="${apply.apply_state=='0'}" type="button" class="btn btn-info btn-sm" >同意</button></a>
+                                <a th:href="@{/updateApplyState/}+${apply.id}+'/-1'"><button th:if="${apply.apply_state=='0'}" type="button" class="btn btn-success btn-sm" >驳回</button></a>
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+                <!-- 模态框 -->
+
+            </div>
+
+            <!--分页-->
+            <div class="container" style="margin: auto">
+                <ul class="pagination">
+                    <li class="page-item" th:if="${pageInfo.hasPreviousPage}" >
+                        <a class="page-link" th:href="'/findByApplyPage?pageNum=1'">首页</a>
+                    </li>
+                    <li class="page-item" th:if="${pageInfo.hasPreviousPage}">
+                        <a class="page-link" th:href="'/findByApplyPage?pageNum='+${pageInfo.prePage}">
+                            <i class="ace-icon fa fa-angle-double-left"></i>
+                        </a>
+                    </li>
+                    <li th:each="nav:${pageInfo.navigatepageNums}" class="page-item ">
+                        <a class="page-link" th:href="'/findByApplyPage?pageNum='+${nav}" th:text="${nav}" th:if="${nav != pageInfo.pageNum}"></a>
+                        <a class="page-link" style="background-color: #b0adff" th:if="${nav == pageInfo.pageNum}" th:text="${nav}" ></a>
+                    </li>
+                    <li th:if="${pageInfo.hasNextPage}" class="page-item">
+                        <a th:href="'/findByApplyPage?pageNum='+${pageInfo.nextPage}">
+
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" th:href="'/findByApplyPage?pageNum='+${pageInfo.pages}">尾页</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>

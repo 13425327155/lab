@@ -1,0 +1,27 @@
+form{
+    /*background-color: #efffe6;*/
+    width: 55%;
+    margin: auto;
+    font-size: 18px;
+}
+
+form div{
+    float: right;
+    margin: 5px;
+    padding: 5px
+}
+
+h1{
+    text-align: center
+}
+
+
+form ul{
+    width: 80%;
+    margin: auto;
+}
+
+form ul li{
+    margin-top: 20px;
+    list-style: none;
+}

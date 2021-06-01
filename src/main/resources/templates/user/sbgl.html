@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>门锁管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" th:href="@{/css/amazeui.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style_user.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <style>
+        #main{
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="am-topbar">
+    <!-- 导航 -->
+    <div class="am-g am-g-fixed">
+        <a th:href="@{/logout_user}"><button class = "backbtn">退出</button></a>
+        <h1 class="am-topbar-brand">
+            <a href="#">门锁管理</a>
+        </h1>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+        <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li><a th:href="@{/index}">首页</a></li>
+                <li ><a th:href="@{/msgl}">门锁管理</a></li>
+                <li class="am-active"><a th:href="@{/sbgl}">设备管理</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+<div id="main" class="am-g am-g-fixed">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+            <h3 class="am-panel-title">门锁管理</h3>
+            <div class="search">
+                <from th:action="@{/searchSbgl}">
+                    <input name="searche" type="text" value="请输入关键词搜索">
+                    <button type="submit"></button>
+                </from>
+            </div>
+        </div>
+
+        <div class="col-sm-2 control-label">
+            <a href="/toSbglAdd" th:href="@{/toSbglAdd}" class="btn btn-info">添加</a>
+        </div>
+        <div style="height:600px;overflow-y:auto">
+             <table id="box-table-a" summary="shebei"   >
+                 <thead>
+                 <tr>
+                     <th>#</th>
+                     <th scope="col">设备名称</th>
+                     <th scope="col">设备类型</th>
+                     <th scope="col">所属实验室</th>
+                     <th scope="col">编辑</th>
+                     <th scope="col">删除</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+
+                 <tr th:each="sbgl : ${sbgls}">
+                     <th scope="row" th:text="${sbgl.id}">1</th>
+                     <td th:text="${sbgl.name}">000001</td>
+                     <td th:text="${sbgl.type}">实验室1</td>
+                     <td th:text="${sbgl.college}">99</td>
+                     <td><a th:href="@{/toSbglEdit(id=${sbgl.id})}">编辑</a></td>
+                     <td><a th:href="@{/Sbgldelete(id=${sbgl.id})}">删除</a></td>
+                 </tr>
+
+                 </tbody>
+             </table>
+
+             </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+
+    </div>
+</body>
+</html>

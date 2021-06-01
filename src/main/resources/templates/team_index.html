@@ -1,0 +1,194 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>教师团队管理子系统</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+</head>
+
+<body class="xh-oflow-h">
+    <div class="xh-main">
+        <div class="xh-header">
+            <h1 class="xh-fleft">[[${session.teamInfo.team_type}]]管理子系统</h1>
+            <a class="xh-fright"th:href="@{/teamLogout}"><i class="fa fa-reply fa-fw"></i> 退出</a>
+            <a class="xh-fright"><i class="fa fa-user-circle-o fa-fw"></i> [[${session.teamInfo.team_name}]]</a>
+            <a href="/team_index" class="xh-fright"><i class="fa fa-home fa-fw"></i> 首页</a>
+        </div>
+        <div class="xh-content">
+            <div class="xh-menu">
+                <ul>
+                    <li class="xh-nav" xh-nav-id="#child-first">
+                        <xh><i class="fa fa-group fa-fw"></i> 成员管理</xh>
+                        <ul id="child-first" class="xh-nav-child">
+                            <li class="xh-href" xh-href="/managingMembers"><i class="fa fa-angle-right fa-fw"></i> 管理</li>
+                            <li class="xh-href" xh-href="/recruit"><i class="fa fa-angle-right fa-fw"></i> 招新</li>
+                        </ul>
+                    </li>
+                    <li class="xh-nav" xh-nav-id="#child-second">
+                        <xh><i class="fa fa-codepen fa-fw"></i> 分配任务</xh>
+                        <ul id="child-second" class="xh-nav-child">
+                            <li class="xh-href" xh-href="/assignTasks"><i class="fa fa-angle-right fa-fw"></i> 未完成的任务</li>
+                            <li class="xh-href" xh-href="/completedTasks"><i class="fa fa-angle-right fa-fw"></i> 已完成的任务</li>
+                        </ul>
+                    </li>
+                    <li class="xh-nav" xh-nav-id="#child-third">
+                        <xh><i class="fa fa-pagelines fa-fw"></i> 申请实验室</xh>
+                        <ul id="child-third" class="xh-nav-child">
+                            <li class="xh-href" xh-href="/responsibility"><i class="fa fa-angle-right fa-fw"></i> 申请实验室</li>
+                            <li class="xh-href" xh-href="/queryApply"><i class="fa fa-angle-right fa-fw"></i> 查看已批准的申请</li>
+                        </ul>
+                    </li>
+                    <li class="xh-nav" xh-nav-id="#child-fourth">
+                        <xh><i class="fa fa-pagelines fa-fw"></i> 成果汇报</xh>
+                        <ul id="child-fourth" class="xh-nav-child">
+                            <li class="xh-href" xh-href="/achievement2"><i class="fa fa-angle-right fa-fw"></i> 提交成果</li>
+                            <li class="xh-href" xh-href="/queryAchievements"><i class="fa fa-angle-right fa-fw"></i> 查看成果</li>
+                        </ul>
+                    </li>
+                    <li class="xh-nav" xh-nav-id="#child-fifth">
+                        <xh><i class="fa fa-pagelines fa-fw"></i> 出入登记</xh>
+                        <ul id="child-fifth" class="xh-nav-child">
+                            <li class="xh-href" xh-href="/checkIn2"><i class="fa fa-angle-right fa-fw"></i> 登记</li>
+                        </ul>
+                    </li>
+                    <li class="xh-nav" xh-nav-id="#child-sixth">
+                        <xh><i class="fa fa-home fa-fw"></i> 团队信息</xh>
+                        <ul id="child-sixth" class="xh-nav-child">
+                            <li class="xh-href" xh-href="/team"><i class="fa fa-angle-right fa-fw"></i> 查看</li>
+                            <li class="xh-href" xh-href="/team_update"><i class="fa fa-angle-right fa-fw"></i>修改</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="xh-menu-all" xh-show-id="#xh-nav-show"><i class="fa fa-angle-right fa-fw"></i> 所有功能</div>
+                <ul class="xh-nav-yc" id="xh-nav-show">
+                    <li class="xh-nav-down" xh-nav-id="#child-1">
+                        <i class="fa fa-group fa-fw"></i> 成员管理<i class="fa fa-angle-down fa-fw xh-fright"></i>
+                    </li>
+                    <!---二级菜单--->
+                    <li>
+                        <ul id="child-1" class="xh-nav-child-down">
+                            <li class="xh-href" xh-href="/managingMembers"><i class="fa fa-angle-right fa-fw"></i> 管理</li>
+                            <li class="xh-href" xh-href="/recruit"><i class="fa fa-angle-right fa-fw"></i> 招新</li>
+                        </ul>
+                    </li>
+
+                    <!---->
+                    <li class="xh-nav-down" xh-nav-id="#child-2">
+                        <i class="fa fa-codepen fa-fw"></i> 分配任务<i class="fa fa-angle-down fa-fw xh-fright"></i>
+                    </li>
+                    <!---二级菜单--->
+                    <li>
+                        <ul id="child-2" class="xh-nav-child-down">
+                            <li class="xh-href" xh-href="/assignTasks"><i class="fa fa-angle-right fa-fw"></i>未完成的任务</li>
+                            <li class="xh-href" xh-href="/completedTasks"><i class="fa fa-angle-right fa-fw"></i>已完成的任务</li>
+                        </ul>
+                    </li>
+
+                    <!---->
+                    <li class="xh-nav-down" xh-nav-id="#child-3">
+                        <i class="fa fa-pagelines fa-fw"></i> 申请实验室<i class="fa fa-angle-down fa-fw xh-fright"></i>
+                    </li>
+                    <!---二级菜单--->
+                    <li>
+                        <ul id="child-3" class="xh-nav-child-down">
+                            <li class="xh-href" xh-href="/responsibility"><i class="fa fa-angle-right fa-fw"></i>申请实验室</li>
+                            <li class="xh-href" xh-href="/queryApply"><i class="fa fa-angle-right fa-fw"></i>查看已批准的申请</li>
+                        </ul>
+                    </li>
+
+                    <!---->
+                    <li class="xh-nav-down" xh-nav-id="#child-4">
+                        <i class="fa fa-pagelines fa-fw"></i> 成果汇报<i class="fa fa-angle-down fa-fw xh-fright"></i>
+                    </li>
+                    <!---二级菜单--->
+                    <li>
+                        <ul id="child-4" class="xh-nav-child-down">
+                            <li class="xh-href" xh-href="/achievement"><i class="fa fa-angle-right fa-fw"></i>提交成果</li>
+                            <li class="xh-href" xh-href="/queryAchievements"><i class="fa fa-angle-right fa-fw"></i>查看成果</li>
+                        </ul>
+                    </li>
+
+                    <!---->
+                    <li class="xh-nav-down" xh-nav-id="#child-5">
+                        <i class="fa fa-pagelines fa-fw"></i> 出入登记<i class="fa fa-angle-down fa-fw xh-fright"></i>
+                    </li>
+                    <!---二级菜单--->
+                    <li>
+                        <ul id="child-5" class="xh-nav-child-down">
+                            <li class="xh-href" xh-href="/checkIn"><i class="fa fa-angle-right fa-fw"></i>登记</li>
+                        </ul>
+                    </li>
+
+                    <!---->
+                    <li class="xh-nav-down" xh-nav-id="#child-6">
+                        <i class="fa fa-home fa-fw"></i> 团队信息<i class="fa fa-angle-down fa-fw xh-fright"></i>
+                    </li>
+                    <!---二级菜单--->
+                    <li>
+                        <ul id="child-6" class="xh-nav-child-down">
+                            <li class="xh-href" xh-href="/team"><i class="fa fa-angle-right fa-fw"></i>查看</li>
+                            <li class="xh-href" xh-href="/team_update"><i class="fa fa-angle-right fa-fw"></i>修改</li>
+
+                        </ul>
+                    </li>
+
+                    <!---->
+                    <li id="xh-back"><i class="fa fa-angle-left fa-fw"></i> 返回</li>
+                </ul>
+            </div>
+            <div class="xh-context">
+                <div class="xh-text-top">
+                    <i class="fa fa-list fa-fw xh-pointer" id="xh-isopen" title="展开/收起"></i>
+                    <!--横向列表菜单-->
+                    <ul id="xh-menubar">
+                        <li xh-id="/teacher_index" class="xh-tactive"><i class="fa fa-home fa-fw"></i></li>
+                    </ul>
+                    <!---->
+                    <i class="fa fa-circle-o-notch fa-fw" id="xh-refresh" title="刷新页面"></i>
+                    <i class="fa fa-angle-double-down fa-fw" id="xh-menulist"></i>
+                </div>
+                <div class="xh-text">
+                    <iframe src="/teacher_index" class="xh-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---修改账号密码--->
+    <div id="modal-admin" class="xh-modal">
+        <div class="xh-modal-content" id="amp_narrow_admin">
+            <div class="xh-modal-title">模拟框标题<i class="fa fa-window-maximize" id="xh-wchanges-admin"></i><i class="fa fa-close xh-close" xh-modal="close"></i></div>
+            <div class="xh-modal-text">
+                <div class="xh-from-box xh-md-12">
+                    <span>账号：</span>
+                    <input type="text" class="xh-input xh-disabled" value="admin" disabled>
+                </div>
+                <div class="xh-from-box xh-md-12">
+                    <span>新密码：</span>
+                    <input type="password" id="pass" class="xh-input" placeholder="请输入新密码">
+                </div>
+                <div class="xh-from-box xh-md-12">
+                    <span>确认新密码：</span>
+                    <input type="password" id="newpass" class="xh-input" placeholder="请再次输入新密码">
+                </div>
+                <div class="xh-clearfix"></div>
+            </div>
+            <div class="xh-modal-foot">
+                <button class="xh-btn xh-close" xh-modal="close">取消</button>
+                <button class="xh-btn xh-btn-primary" id="act" xh-bload='true'>保存</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<link th:href="@{css/xh.css}" rel="stylesheet" type="text/css" href="../static/css/xh.css">
+<link th:href="@{css/xhico.css}" rel="stylesheet" type="text/css" href="../static/css/xhico.css">
+<link th:href="@{Font/font-awesome-4.7.0/css/font-awesome.min.css}" rel="stylesheet" type="text/css" href="../static/Font/font-awesome-4.7.0/css/font-awesome.min.css">
+<link th:href="@{css/main.css}" rel="stylesheet" type="text/css" href="../static/css/main.css">
+<script th:src="@{js/jquery.js}" src="../static/js/jquery.js" type="text/javascript"></script>
+<script th:src="@{js/xh.js}" src="../static/js/xh.js?tmp=123" type="text/javascript"></script>
+</html>

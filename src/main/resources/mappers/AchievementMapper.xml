@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.team.dao.AchievementDao" >
+
+    <resultMap id="achievementMap" type="com.example.team.model.Achievement" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="achieve" property="achieve" jdbcType="VARCHAR" />
+        <result column="prize" property="prize" jdbcType="VARCHAR" />
+        <result column="team_type" property="team_type" jdbcType="VARCHAR" />
+        <result column="team_name" property="team_name" jdbcType="VARCHAR" />
+        <result column="team_leader" property="team_leader" jdbcType="VARCHAR" />
+        <result column="team_member" property="team_member" jdbcType="VARCHAR" />
+        <result column="mem_phone" property="mem_phone" jdbcType="VARCHAR" />
+        <result column="detail" property="detail" jdbcType="VARCHAR" />
+        <result column="time" property="time"/>
+        <result column="team_id" property="team_id" jdbcType="INTEGER" />
+    </resultMap>
+
+    <select id="findAll" resultMap="achievementMap" parameterType="com.example.team.model.Achievement">
+        select * from zxl_achievement
+
+    </select>
+
+    <insert id="save" parameterType="com.example.team.model.Achievement">
+        insert into zxl_achievement values (#{id}, #{achieve},#{prize},
+                                            #{team_type},#{team_name},#{team_leader},#{team_member},
+                                            #{mem_phone},#{detail},#{time},#{team_id})
+    </insert>
+
+
+    <select id="findAllAchieve" resultMap="achievementMap">
+        select * from zxl_achievement
+    </select>
+
+    <select id="searchAchieveByName" resultMap="achievementMap">
+        select * from zxl_achievement
+        where achieve like  "%" #{searchword} "%"
+    </select>
+
+    <insert id="insert" parameterType="com.example.team.model.Achievement">
+      insert into zxl_achievement (id, achieve, prize,
+          team_type, team_name, team_leader,
+          team_member, mem_phone, detail,
+          time,team_id
+          )
+      values (#{id,jdbcType=INTEGER}, #{achieve,jdbcType=VARCHAR}, #{prize,jdbcType=VARCHAR},
+      #{team_type,jdbcType=VARCHAR}, #{team_name,jdbcType=VARCHAR}, #{team_leader,jdbcType=VARCHAR},
+      #{team_member,jdbcType=VARCHAR}, #{mem_phone,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR},
+      #{time}, #{team_id,jdbcType=INTEGER}
+      )
+    </insert>
+
+    <select id="findByAchieveId" resultMap="achievementMap">
+        select * from zxl_achievement where id = #{id}
+    </select>
+
+    <delete id="delAchieveById" parameterType="java.lang.Integer">
+        delete from  zxl_achievement where id = #{id}
+    </delete>
+
+    <update id="updateAchieve" parameterType="com.example.team.model.Achievement">
+      update zxl_achievement
+      set achieve = #{achieve,jdbcType=VARCHAR},
+          prize = #{prize,jdbcType=VARCHAR},
+          team_type = #{team_type,jdbcType=VARCHAR},
+          team_name = #{team_name,jdbcType=VARCHAR},
+          team_leader = #{team_leader,jdbcType=VARCHAR},
+          team_member = #{team_member,jdbcType=VARCHAR},
+          mem_phone = #{mem_phone,jdbcType=VARCHAR},
+          detail = #{detail,jdbcType=VARCHAR},
+          time = #{time},
+          team_id = #{team_id,jdbcType=INTEGER}
+      where id = #{id,jdbcType=INTEGER}
+    </update>
+
+
+</mapper>

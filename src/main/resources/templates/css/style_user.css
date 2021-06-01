@@ -1,0 +1,478 @@
+/*公共css文件*/
+.am-topbar{
+    margin-bottom: 0;/*去除导航栏和Slider之间的间隙*/
+}
+
+#footer p{
+    text-align: center;
+    margin:5px auto;
+    font-size: 14px;
+}
+
+.login-button:hover { /* 鼠标移入按钮范围时改变颜色 */
+    background: #5599FF;
+}
+#box-table-a
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    margin: 45px;
+    width: 600px;
+    text-align: left;
+    border-collapse: collapse;
+}
+#box-table-a th
+{
+    font-size: 13px;
+    font-weight: normal;
+    padding: 8px;
+    background: #b9c9fe;
+    white-space:nowrap;
+    border-top: 4px solid #aabcfe;
+    border-bottom: 1px solid #fff;
+    color: #039;
+}
+#box-table-a td
+{
+    padding: 8px;
+    background: #e8edff;
+    border-bottom: 1px solid #fff;
+    white-space:nowrap;
+    color: #669;
+    border-top: 1px solid transparent;
+}
+#box-table-a tr:hover td
+{
+    background: #d0dafd;
+    white-space:nowrap;
+    color: #339;
+}
+.btn {
+     /* 文字颜色 */
+     color: #0099CC;
+     /* 清除背景色 */
+     background: transparent;
+     /* 边框样式、颜色、宽度 */
+     border: 2px solid #b9c9fe;
+     /* 给边框添加圆角 */
+     border-radius: 7px;
+     /* 字母转大写 */
+     border: none;
+     color: white;
+     padding: 8px 16px;
+     text-align: center;
+     display: inline-block;
+     font-size: 12px;
+     margin: 4px 2px;
+     -webkit-transition-duration: 0.4s; /* Safari */
+     transition-duration: 0.4s;
+     cursor: pointer;
+     text-decoration: none;
+     text-transform: uppercase;
+ }
+.btn {
+     background-color: white;
+     color: black;
+     border: 2px solid #b9c9fe;
+ }
+/* 悬停样式 */
+.btn:hover {
+    background-color: #008CBA;
+    color: white;
+}
+*{margin: 0; padding: 0;}
+input,button{border: 0 none;}
+.search{
+    width: 200px;
+    height: 37px;
+    border: 1px solid #e7e5e1;
+
+    position: relative;
+    border-radius: 3px;
+}
+.search input{
+    width: 172px;
+    height: 35px;
+    line-height: 35px;
+    outline-style: none;/*input框去掉外边蓝色边框*/
+    padding-left: 5px; /* 文字距离左边框17px  加padding-left时别忘了width减去17px;*/
+    color: #cccccc;
+}
+.search button{
+    width: 28px;
+    height: 37px;
+    background: url("../image/right.png") no-repeat;
+    float: left;
+    cursor: pointer;
+    display: inline;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.am-form-horizontal .am-form-group:after, .am-nav:after, .am-topbar-collapse:after, .am-topbar:after {
+    clear: both
+}
+
+.am-topbar, .am-topbar a {
+    color: #666
+}
+
+.am-topbar-collapse:after, .am-topbar-collapse:before, .am-topbar:after, .am-topbar:before {
+    content: " ";
+    display: table
+}
+
+.am-topbar {
+    position: relative;
+    min-height: 50px;
+    background: #f8f8f8;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: #ddd
+}
+
+.am-topbar-brand a:hover {
+    color: #4d4d4d
+}
+
+.am-topbar-collapse {
+    width: 100%;
+    overflow-x: visible;
+    padding: 10px;
+    clear: both;
+    -webkit-overflow-scrolling: touch
+}
+
+.am-topbar-collapse.am-in {
+    overflow-y: auto
+}
+
+@media only screen and (min-width: 641px) {
+    .am-topbar-brand {
+        float: left
+    }
+
+    .am-topbar-collapse {
+        margin-top: 0;
+        padding: 0;
+        width: auto;
+        clear: none
+    }
+
+    .am-topbar-collapse.am-collapse {
+        display: block !important;
+        height: auto !important;
+        padding: 0;
+        overflow: visible !important
+    }
+
+    .am-topbar-collapse.am-in {
+        overflow-y: visible
+    }
+}
+
+.am-article:after, .am-btn-group-stacked > .am-btn-group:after, .am-btn-toolbar:after, .am-comment:after, .am-divider, .am-divider-one, .am-intro-more-bottom, .am-pagination:after, .am-slider .am-slides:after, ul.am-dropdown-content > li > a {
+    clear: both
+}
+
+.am-topbar-brand {
+    margin: 0;
+    padding: 0 10px;
+    float: left;
+    font-size: 1.8rem;
+    height: 50px;
+    line-height: 50px
+}
+
+.am-topbar-toggle {
+    position: relative;
+    float: right;
+    margin-right: 10px
+}
+
+@media only screen and (max-width: 640px) {
+    body {
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto
+    }
+
+    .am-topbar-nav {
+        margin-bottom: 8px
+    }
+
+    .am-topbar-nav > li {
+        float: none
+    }
+
+    .am-topbar-nav > li + li {
+        margin-left: 0;
+        margin-top: 5px
+    }
+}
+
+@media only screen and (min-width: 641px) {
+    .am-topbar-toggle {
+        display: none
+    }
+
+    .am-topbar-nav {
+        float: left
+    }
+
+    .am-topbar-nav > li > a {
+        position: relative;
+        line-height: 50px;
+        padding: 0 10px
+    }
+
+    .am-topbar-nav > li > a:after {
+        position: absolute;
+        left: 50%;
+        margin-left: -7px;
+        bottom: -1px;
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        vertical-align: middle;
+        border-bottom: 7px solid #f8f8f8;
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        border-top: 0 dotted;
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+        opacity: 0;
+        -webkit-transition: opacity .1s;
+        transition: opacity .1s
+    }
+
+    .am-topbar-nav > li > a:hover:after {
+        opacity: 1;
+        border-bottom-color: #666
+    }
+
+    .am-topbar-nav > li.am-dropdown > a:after {
+        display: none
+    }
+
+    .am-topbar-nav > li.am-active > a, .am-topbar-nav > li.am-active > a:focus, .am-topbar-nav > li.am-active > a:hover {
+        border-radius: 0;
+        color: #0e90d2;
+        background: 0 0
+    }
+
+    .am-topbar-nav > li.am-active > a:after {
+        opacity: 1;
+        border-bottom-color: #0e90d2
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .am-topbar-collapse .am-dropdown.am-active .am-dropdown-content {
+        float: none;
+        position: relative;
+        width: 100%
+    }
+
+    .am-topbar-form .am-form-group {
+        margin-bottom: 5px
+    }
+}
+
+@media only screen and (min-width: 641px) {
+    .am-topbar-left {
+        float: left
+    }
+
+    .am-topbar-right {
+        float: right;
+        margin-right: 10px
+    }
+
+    .am-topbar-form {
+        padding: 0 10px;
+        margin-top: 8px
+    }
+
+    .am-topbar-form .am-form-group + .am-btn {
+        margin-left: 5px
+    }
+}
+
+.am-topbar-btn {
+    margin-top: 8px
+}
+
+.am-topbar-inverse {
+    background-color: #0e90d2;
+    border-color: #0b6fa2;
+    color: #eee
+}
+
+.am-topbar-inverse a {
+    color: #eee
+}
+
+.am-topbar-inverse .am-topbar-brand a {
+    color: #fff
+}
+
+.am-topbar-inverse .am-topbar-brand a:focus, .am-topbar-inverse .am-topbar-brand a:hover {
+    color: #fff;
+    background-color: transparent
+}
+
+.am-topbar-inverse .am-topbar-nav > li > a {
+    color: #eee
+}
+
+.am-topbar-inverse .am-topbar-nav > li > a:focus, .am-topbar-inverse .am-topbar-nav > li > a:hover {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .05)
+}
+
+.am-topbar-inverse .am-topbar-nav > li > a:focus:after, .am-topbar-inverse .am-topbar-nav > li > a:hover:after {
+    border-bottom-color: #0b6fa2
+}
+
+.am-topbar-inverse .am-topbar-nav > li > a:after {
+    border-bottom-color: #0e90d2
+}
+
+.am-topbar-inverse .am-topbar-nav > li.am-active > a, .am-topbar-inverse .am-topbar-nav > li.am-active > a:focus, .am-topbar-inverse .am-topbar-nav > li.am-active > a:hover {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .1)
+}
+
+.am-topbar-inverse .am-topbar-nav > li.am-active > a:after, .am-topbar-inverse .am-topbar-nav > li.am-active > a:focus:after, .am-topbar-inverse .am-topbar-nav > li.am-active > a:hover:after {
+    border-bottom-color: #fff
+}
+
+.am-topbar-inverse .am-topbar-nav > li .disabled > a, .am-topbar-inverse .am-topbar-nav > li .disabled > a:focus, .am-topbar-inverse .am-topbar-nav > li .disabled > a:hover {
+    color: #444;
+    background-color: transparent
+}
+
+.am-topbar-fixed-bottom, .am-topbar-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+}
+
+.am-topbar-fixed-top {
+    top: 0
+}
+
+.am-topbar-fixed-bottom {
+    bottom: 0;
+    margin-bottom: 0;
+    border-width: 1px 0 0
+}
+
+.am-with-topbar-fixed-top {
+    padding-top: 51px
+}
+
+.am-with-topbar-fixed-bottom {
+    padding-bottom: 51px
+}
+
+@media only screen and (max-width: 640px) {
+    .am-topbar-collapse .am-btn, .am-topbar-collapse .am-topbar-btn {
+        display: block;
+        width: 100%
+    }
+
+    .am-topbar-fixed-bottom .am-topbar-collapse {
+        position: absolute;
+        bottom: 100%;
+        margin-bottom: 1px;
+        background-color: #b9c9fe
+    }
+
+    .am-topbar-fixed-bottom .am-topbar-collapse .am-dropdown-content:after, .am-topbar-fixed-bottom .am-topbar-collapse .am-dropdown-content:before {
+        display: none
+    }
+
+    .am-topbar-fixed-bottom.am-topbar-inverse .am-topbar-collapse {
+        background-color: #b9c9fe
+    }
+}
+
+.page-normal a{
+    border: 1px solid #b9c9fe;
+    padding: 5px 7px;
+    color: black;
+    margin-left: 20px;/*设置标签 a 之间的间隔*/
+    text-decoration: none;/*去除页码数字下面的下划线*/
+}
+/*设置鼠标经过时 a 标签的css样式*/
+.page-normal a:hover{
+    background-color:#b9c9fe;
+}
+
+/*设置整个div的css样式,该样式主要用于设置网页内的省略号 …… 的样式，并且同时设置内容居中显示*/
+.page-normal{
+    color: #b9c9fe;
+    margin:20px;
+}
+
+/*设置当前页面的css样式*/
+.page-normal .page-current{
+    color: black;
+    background-color:#b9c9fe;
+}
+
+/*设置左单括号 < 的css样式*/
+.page-normal .page-prev{
+    color: #b9c9fe;
+}
+
+/*进行代码优化，将不同css样式中共有的属性放在一起，有助于提高运行效率*/
+.page-normal a, .page-normal a:hover, .page-normal .page-prev, .page-normal .page-current {
+    border: 1px solid #b9c9fe;
+    padding: 5px 7px;
+}
+.backbtn {
+    /* 文字颜色 */
+    color: #0099CC;
+    /* 清除背景色 */
+    background: transparent;
+    /* 边框样式、颜色、宽度 */
+    border: 2px solid #b9c9fe;
+    /* 给边框添加圆角 */
+    border-radius: 7px;
+    /* 字母转大写 */
+    border: none;
+    color: white;
+    float:right;
+    padding: 8px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.backbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid red;
+}
+/* 悬停样式 */
+.backbtn:hover {
+    background-color: red;
+    color: white;
+}
+*{margin: 0; padding: 0;}
+input,button{border: 0 none;}

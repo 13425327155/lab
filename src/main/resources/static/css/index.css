@@ -1,0 +1,40 @@
+html,div,body{
+    width: 100%;
+    background: whitesmoke;
+}
+a.list-group-item{
+    background-color: #2F4050;
+}
+a.list-group-item:hover{
+    background-color: #293846;
+}
+a.list-group-item:focus{
+    background-color: #293846;
+}
+span{
+    color: whitesmoke;
+    font-family: 'Microsoft YaHei';
+}
+#div0{
+    background-color: #2F4050;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+svg{
+    margin: 1px;
+    padding: 1px;
+    color: whitesmoke;
+}
+.center{
+    text-align: center;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+#div1,#div2,#div3,#div4{
+    width: 100%;
+    height: 100%;
+}

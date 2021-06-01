@@ -1,0 +1,60 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>教师团队管理子系统</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+</head>
+
+<body>
+    <div class="xh-main">
+        <form>
+            <h1>实验室安全责任书</h1>
+            <ul>
+                <h4>为了加强实验教学安全管理，预防实验室安全事故发生，保护师生员工人身利益和公共财产安全，保障教学和科研工作顺利进行，结合我院工作实际，特签订本责任书。</h4>
+                <li>一、实验教学过程坚持院系主管、实验室管理人员监督、实验教学指导教师具体执行的原则，实行安全责任制。</li>
+                <li>二、实验室安全工作必须做到专人管理，专人负责，进入实验室的所有人员，必须遵守实验室的各项规章制度。</li>
+                <li>三、坚持“安全第一，预防为主”的方针，在进行科研和实践教学任务之前，对进入实验室开展实验的教师和学生进行安全教育。</li>
+                <li>四、实验教学指导教师负责对学生进行安全教育，同时签订安全教育责任书。实验教学过程中教师和学生必须遵守实验室操作规程和各项安全管理规定。</li>
+                <li>五、实验教学开始前由实验室管理人员负责开门、通电，实验结束后由实验教学指导教师负责关闭计算机和电源，并锁好门窗。</li>
+                <li>六、实验教学开始前，教师负责检查和核对实验室设备情况，认真记录检查结果并填写机房使用记录本，教学过程中记录各类异常情况。</li>
+                <li>七、严禁随意插拔计算机设备各类接头，禁止随意摆放和破坏消防器材，教师或学生未按照安全管理制度执行的，各实验室管理人员可拒绝提供实验场地和条件。</li>
+                <li>八、实验室要加强用电管理，严禁教师和学生在实验室内通过私拉电源线或网线使用个人笔记本电脑，凡因违反此项规定导致实验室计算机设备、网络设备和电源设备故障的，实验指导教师负全责。</li>
+                <li>九、对使用过的耗材不得随便乱扔、乱放、乱倒，应分类摆放，妥善处理。</li>
+                <li>十、实验室管理员和实验课教师必须协助院系制定安全应急预案，一旦发生事故，应立即积极组织人员抢救，把损失降低至最低程度，并及时上报院系。</li>
+                <li>此责任书一式两份，计算机学院（软件学院）实验中心和实验室申请人各执一份。</li>
+            </ul>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="Check1"/>
+                <label class="form-check-label" for="Check1">
+                    我已详细阅读并同意安全责任书
+                </label>
+                <button class="btn btn-info" onclick="checkShow()">接受</button>
+            </div>
+        </form>
+    </div>
+</body>
+<link th:href="@{css/xh.css}" rel="stylesheet" type="text/css" href="css/xh.css?tmp=123">
+<link th:href="@{css/xhico.css}" rel="stylesheet" type="text/css" href="css/xhico.css">
+<link th:href="@{css/main.css}" rel="stylesheet" type="text/css" href="css/main.css">
+<link th:href="@{Font/font-awesome-4.7.0/css/font-awesome.min.css}" rel="stylesheet" type="text/css" href="Font/font-awesome-4.7.0/css/font-awesome.min.css">
+<script th:src="@{js/jquery.js}" src="js/jquery.js" type="text/javascript"></script>
+<script th:src="@{js/xh.js}" src="js/xh.js?tmp=14" type="text/javascript"></script>
+<script th:src="@{js/main.js}" src="js/main.js" type="text/javascript"></script>
+<link th:href="@{css/responsibility.css}" rel="stylesheet" href="css/responsibility.css">
+<script language="JavaScript" type="text/javascript">
+    function checkShow(){
+        if (document.getElementById("Check1").checked){
+            window.location.href="/apply2";
+            window.event.returnValue=false;
+        }else{
+            alert("请接受“安全责任书”，否则不予借用实验室！");
+        }
+    }
+</script>
+</html>

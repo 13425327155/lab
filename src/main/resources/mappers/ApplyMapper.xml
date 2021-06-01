@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.team.dao.ApplyDao" >
+
+    <resultMap id="applyMap" type="com.example.team.model.Apply" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="apply_people" property="apply_people" jdbcType="VARCHAR" />
+        <result column="apply_time" property="apply_time"/>
+        <result column="apply_phone" property="apply_phone" jdbcType="VARCHAR" />
+        <result column="team_type" property="team_type" jdbcType="VARCHAR" />
+        <result column="team_name" property="team_name" jdbcType="VARCHAR" />
+        <result column="is_responsibility" property="is_responsibility" jdbcType="VARCHAR" />
+        <result column="distribution_lab" property="distribution_lab" jdbcType="VARCHAR" />
+        <result column="apply_state" property="apply_state" jdbcType="VARCHAR" />
+        <result column="start_time" property="start_time"/>
+        <result column="end_time" property="end_time"/>
+        <result column="apply_purpose" property="apply_purpose" jdbcType="VARCHAR" />
+        <result column="team_member" property="team_member" jdbcType="VARCHAR" />
+    </resultMap>
+    <insert id="save" parameterType="com.example.team.model.Apply">
+        insert into zxl_apply values (#{id}, #{apply_people},#{apply_time},#{apply_phone},
+                                        #{team_type},#{team_name},#{is_responsibility},#{distribution_lab},
+                                        #{apply_state},#{start_time},#{end_time},#{apply_purpose},#{team_member})
+    </insert>
+
+    <select id="findAll" resultMap="applyMap" parameterType="com.example.team.model.Apply">
+        select *from zxl_apply
+        <where>
+            team_name=#{team_name} and apply_state = 1
+        </where>
+    </select>
+
+    <select id="findAllApply" resultMap="applyMap">
+        select * from zxl_apply
+    </select>
+
+    <select id="searchApplyByName" resultMap="applyMap">
+        select * from zxl_apply where apply_people like "%" #{searchword} "%"
+    </select>
+
+    <select id="searchApplyByState" resultMap="applyMap">
+        select * from zxl_apply where apply_state = #{apply_state}
+    </select>
+
+    <select id="findApplyById" resultMap="applyMap">
+        select * from zxl_apply where id = #{id}
+    </select>
+
+    <update id="updateApply" parameterType="com.example.team.model.Apply">
+        update zxl_apply
+        set apply_people = #{apply_people},
+            apply_time = #{apply_time},
+            apply_phone = #{apply_phone},
+            team_type = #{team_type},
+            team_name = #{team_name},
+            is_responsibility = #{is_responsibility},
+            distribution_lab = #{distribution_lab},
+            apply_state = #{apply_state},
+            start_time = #{start_time},
+            end_time = #{end_time},
+            apply_purpose = #{apply_purpose},
+            team_member = #{team_member}
+        where id = #{id}
+    </update>
+
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.team.dao.TeamDao" >
+
+    <resultMap id="teamMap" type="com.example.team.model.Team" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="stu_number" property="stu_number" jdbcType="VARCHAR" />
+        <result column="stu_pwd" property="stu_pwd" jdbcType="VARCHAR" />
+        <result column="stu_phone" property="stu_phone" jdbcType="VARCHAR" />
+        <result column="team_type" property="team_type" jdbcType="VARCHAR" />
+        <result column="team_name" property="team_name" jdbcType="VARCHAR" />
+        <result column="team_Exp_title" property="team_Exp_title" jdbcType="VARCHAR" />
+        <result column="is_enjor" property="is_enjor" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <update id="save" parameterType="com.example.team.model.Team">
+        update zxl_team set stu_number=#{stu_number},stu_pwd=#{stu_pwd},stu_phone=#{stu_phone},
+                                    team_type=#{team_type},team_name=#{team_name},team_Exp_title=#{team_Exp_title},is_enjor=#{is_enjor}
+        where id=#{id}
+    </update>
+
+    <select id="findByStuNum" resultMap="teamMap" parameterType="com.example.team.model.Team">
+        select * from zxl_team
+        <where>
+            stu_number= #{stu_number}
+        </where>
+    </select>
+
+<!--    登录-->
+    <select id="teamLogin" resultMap="teamMap" parameterType="com.example.team.model.Team">
+        select* from zxl_team
+        <where>
+            stu_number= #{stu_number} and stu_pwd = #{stu_pwd}
+        </where>
+    </select>
+
+<!--    <insert id="save" parameterType="com.example.team.model.Team">-->
+<!--        insert into zxl_team values (#{id}, #{stu_number},#{stu_pwd},#{stu_phone},-->
+<!--                                    #{team_type},#{team_name},#{team_Exp_title},#{is_enjor})-->
+<!--    </insert>-->
+
+    <!--    //查看团队列表-->
+    <select id="viewTeamList" resultMap="teamMap" parameterType="com.example.team.model.Team">
+        select * from zxl_team
+        <where>
+            is_enjor = 1
+        </where>
+    </select>
+    <!--    //模糊查询团队类型，团队名称和实验标题-->
+    <select id="searchTeamList" resultMap="teamMap" parameterType="com.example.team.model.Team">
+        select * from zxl_team where is_enjor = 1
+        <if test="inputs != null and inputs != ''">
+            and ((id like concat('%',#{inputs},'%')) or (team_type like concat('%',#{inputs},'%')) or (team_name like concat('%',#{inputs},'%'))
+            or (team_Exp_title like concat('%',#{inputs},'%')))
+        </if>
+    </select>
+
+
+
+</mapper>

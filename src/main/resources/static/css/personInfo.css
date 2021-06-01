@@ -1,0 +1,9 @@
+#div {
+    width: 55%;
+    height: auto;
+    border: 1px skyblue solid;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: darkgrey 5px 5px 30px 5px;
+    text-shadow: 1px 1px rebeccapurple;
+}
